@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 @class TLoginDataModel;
 @interface TLoginViewModel : NSObject
+@property (nonatomic, strong, readonly) NSString *name1;
+@property (nonatomic, strong, readonly) NSString *name2;
 - (void)bindDataModel:(TLoginDataModel *)dataModel;
 @end

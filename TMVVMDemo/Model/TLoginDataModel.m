@@ -33,6 +33,8 @@
 #pragma mark - event response
 
 #pragma mark - private
-
+- (void)handleData:(void (^)(id))block{
+    block ? block(@[@"被点击了",@"取消了点击"]) : nil;
+}
 #pragma mark - getter / setter
 @end

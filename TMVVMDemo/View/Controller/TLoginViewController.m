@@ -7,9 +7,15 @@
 //
 
 #import "TLoginViewController.h"
+#import "TLoginView.h"
+#import <Masonry.h>
+#import "TLoginDataModel.h"
+#import "TLoginViewModel.h"
 
 @interface TLoginViewController ()
-
+@property (nonatomic, strong) TLoginView *loginView;
+@property (nonatomic, strong) TLoginDataModel *model;
+@property (nonatomic, strong) TLoginViewModel *viewModel;
 @end
 
 @implementation TLoginViewController
@@ -23,7 +29,21 @@
 #pragma mark - init methods
 
 - (void)initSubviews{
+    self.view.backgroundColor = [UIColor whiteColor];
+    TLoginView *loginView = [TLoginView new];
+    loginView.layer.cornerRadius = 4;
+    loginView.layer.masksToBounds = YES;
+    [self.view addSubview:loginView];
+    [loginView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.mas_equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(280, 100));
+    }];
     
+    self.viewModel = [TLoginViewModel new];
+    self.model = [TLoginDataModel new];
+    
+    [self.viewModel bindDataModel:self.model];
+    [loginView bindViewModel:self.viewModel];
 }
 
 - (void)setSubviewsLayout{

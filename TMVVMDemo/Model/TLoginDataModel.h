@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface TLoginDataModel : NSObject
-
+- (void)handleData:(void(^)(id data))block;
 @end

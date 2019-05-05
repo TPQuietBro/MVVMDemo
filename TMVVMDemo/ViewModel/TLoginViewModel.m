@@ -10,7 +10,8 @@
 #import "TLoginDataModel.h"
 
 @interface TLoginViewModel()
-
+@property (nonatomic, strong) NSString *name1;
+@property (nonatomic, strong) NSString *name2;
 @end
 @implementation TLoginViewModel
 
@@ -28,7 +29,11 @@
 
 #pragma mark - public
 - (void)bindDataModel:(TLoginDataModel *)dataModel{
-    
+    __weak typeof(self) weak_self = self;
+    [dataModel handleData:^(NSArray *data) {
+        weak_self.name1 = data.firstObject;
+        weak_self.name2 = data.lastObject;
+    }];
 }
 
 #pragma mark - system delegate
