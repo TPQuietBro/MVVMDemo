@@ -1,0 +1,9 @@
+Podfile.lock
+Pods/
+ZNovel.xcworkspace/
+ZNovel.xcodeproj/xcuserdata/
+artifacts/
+build.log
+buildTimeNode.txt
+Build/
+*/.DS_Store
