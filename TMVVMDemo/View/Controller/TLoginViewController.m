@@ -39,12 +39,31 @@
         make.size.mas_equalTo(CGSizeMake(280, 100));
     }];
     
+    self.loginView = loginView;
+    
     self.viewModel = [TLoginViewModel new];
     self.model = [TLoginDataModel new];
     
     [self.viewModel bindDataModel:self.model];
-    [loginView bindViewModel:self.viewModel];
+    
+    [self.viewModel addObserver:self forKeyPath:@"name1" options:NSKeyValueObservingOptionNew context:nil];
+    
+//    [self refreshData];
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([@"name1" isEqualToString:keyPath]) {
+        if (change[NSKeyValueChangeNewKey]) {
+            [self refreshData];
+            NSLog(@"---%@",change[NSKeyValueChangeNewKey]);
+        }
+    }
+}
+
+- (void)refreshData{
+    [self.loginView bindViewModel:self.viewModel];
+}
+
 
 - (void)setSubviewsLayout{
     

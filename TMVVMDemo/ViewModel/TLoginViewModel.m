@@ -29,10 +29,9 @@
 
 #pragma mark - public
 - (void)bindDataModel:(TLoginDataModel *)dataModel{
-    __weak typeof(self) weak_self = self;
     [dataModel handleData:^(NSArray *data) {
-        weak_self.name1 = data.firstObject;
-        weak_self.name2 = data.lastObject;
+        self.name1 = data.firstObject;
+        self.name2 = data.lastObject;
     }];
 }
 
