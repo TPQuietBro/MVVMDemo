@@ -18,6 +18,7 @@
 		AF1EF610227F173200CCA593 /* TLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF60F227F173200CCA593 /* TLoginView.m */; };
 		AF1EF613227F174A00CCA593 /* TLoginDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF612227F174A00CCA593 /* TLoginDataModel.m */; };
 		AF1EF616227F175A00CCA593 /* TLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF615227F175A00CCA593 /* TLoginViewModel.m */; };
+		AF1EF61C2280559500CCA593 /* TCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF61B2280559500CCA593 /* TCommand.m */; };
 		CB75553DC45F7F1D8B2B3509 /* libPods-TMVVMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7309CFBEA0710DD1E5B6FD79 /* libPods-TMVVMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		AF1EF612227F174A00CCA593 /* TLoginDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLoginDataModel.m; sourceTree = "<group>"; };
 		AF1EF614227F175A00CCA593 /* TLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLoginViewModel.h; sourceTree = "<group>"; };
 		AF1EF615227F175A00CCA593 /* TLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLoginViewModel.m; sourceTree = "<group>"; };
+		AF1EF61A2280559500CCA593 /* TCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCommand.h; sourceTree = "<group>"; };
+		AF1EF61B2280559500CCA593 /* TCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 		AF1EF607227F16DC00CCA593 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AF1EF61A2280559500CCA593 /* TCommand.h */,
+				AF1EF61B2280559500CCA593 /* TCommand.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF1EF61C2280559500CCA593 /* TCommand.m in Sources */,
 				AF1EF610227F173200CCA593 /* TLoginView.m in Sources */,
 				AF1EF5E6227F167C00CCA593 /* ViewController.m in Sources */,
 				AF1EF5F1227F167E00CCA593 /* main.m in Sources */,

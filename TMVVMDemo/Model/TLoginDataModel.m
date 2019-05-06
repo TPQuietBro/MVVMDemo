@@ -35,9 +35,6 @@
 #pragma mark - private
 - (void)handleData:(void (^)(id))block{
     block ? block(@[@"被点击了",@"取消了点击"]) : nil;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        block ? block(@[@"new 被点击了",@" new 取消了点击"]) : nil;
-    });
 }
 #pragma mark - getter / setter
 @end

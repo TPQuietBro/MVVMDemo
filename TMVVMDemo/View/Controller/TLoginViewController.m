@@ -45,18 +45,26 @@
     self.model = [TLoginDataModel new];
     
     [self.viewModel bindDataModel:self.model];
+    [self refreshData];
     
-    [self.viewModel addObserver:self forKeyPath:@"name1" options:NSKeyValueObservingOptionNew context:nil];
+    [self.viewModel addObserver:self forKeyPath:@"command.result" options:NSKeyValueObservingOptionNew context:nil];
     
-//    [self refreshData];
+    [self.viewModel.command excute:@"hello world"];
+   
+}
+
+- (void)dealloc{
+    [self.viewModel removeObserver:self forKeyPath:@"command.result"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    if ([@"name1" isEqualToString:keyPath]) {
+    if ([@"name1" isEqualToString:keyPath] || [@"name2" isEqualToString:keyPath]) {
         if (change[NSKeyValueChangeNewKey]) {
-            [self refreshData];
+//            [self refreshData];
             NSLog(@"---%@",change[NSKeyValueChangeNewKey]);
         }
+    } else if ([@"command.result" isEqualToString:keyPath]){
+        NSLog(@"请求的结果 : %@",self.viewModel.command.result.responseObject);
     }
 }
 
