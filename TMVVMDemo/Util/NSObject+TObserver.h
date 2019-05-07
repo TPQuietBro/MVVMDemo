@@ -10,11 +10,11 @@
 
 #define T_Observe(target,keypath) [target addObserver:self keyPath:@t_keypath(target,keypath)]
 
-typedef void(^Handler)(id newValue);
+typedef void(^Handler)(id newValue,id observer);
 
 @interface NSObject (TObserver)
-@property (nonatomic, strong) Handler handler;
-- (NSObject *)addObserver:(id)observer keyPath:(NSString *)keyPath;
-- (void)statusChangeHandler:(void(^)(id newValue))handler;
+- (NSObject *)addObserver:(NSObject *)observer keyPath:(NSString *)keyPath;
+- (void)statusChangeHandler:(Handler)handler;
+
 @end
 

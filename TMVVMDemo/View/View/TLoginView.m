@@ -51,9 +51,10 @@
 
 - (void)bindViewModel:(TLoginViewModel *)viewModel{
     self.viewModel = viewModel;
+    self.label1.text = viewModel.name1;
     __weak typeof(self) weak_self = self;
     
-    [T_Observe(self.viewModel, name1) statusChangeHandler:^(id newValue) {
+    [T_Observe(self.viewModel, name1) statusChangeHandler:^(id newValue,id observer) {
         weak_self.label1.text = newValue;
     }];
     

@@ -7,6 +7,7 @@
 //
 
 #import "TLoginDataModel.h"
+#import "TObserverDefine.h"
 @interface TLoginDataModel()
 
 @end
@@ -34,7 +35,10 @@
 
 #pragma mark - private
 - (void)handleData:(void (^)(id))block{
-    block ? block(@[@"被点击了",@"取消了点击"]) : nil;
+    SAFE_BLOCK(block,@"这是初始值");
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        SAFE_BLOCK(block,@"数据改变了被监听到了");
+    });
 }
 #pragma mark - getter / setter
 @end

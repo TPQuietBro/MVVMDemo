@@ -12,6 +12,7 @@
 @interface TLoginViewModel()
 @property (nonatomic, strong) NSString *name1;
 @property (nonatomic, strong) NSString *name2;
+@property (nonatomic, strong) TLoginDataModel *dataModel;
 @end
 @implementation TLoginViewModel
 
@@ -34,9 +35,10 @@
 
 #pragma mark - public
 - (void)bindDataModel:(TLoginDataModel *)dataModel{
-    [dataModel handleData:^(NSArray *data) {
-        self.name1 = data.firstObject;
-        self.name2 = data.lastObject;
+    self.dataModel = dataModel;
+    __weak typeof(self) weak_self = self;
+    [self.dataModel handleData:^(NSString *data) {
+        weak_self.name1 = data;
     }];
 }
 

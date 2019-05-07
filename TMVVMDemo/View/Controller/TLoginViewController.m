@@ -25,9 +25,6 @@
     
     [self initSubviews];
     
-    [self initModel];
-    [self initViewModel];
-    
 }
 #pragma mark - init methods
 
@@ -43,38 +40,21 @@
     }];
     
     self.loginView = loginView;
-}
-
-- (void)initViewModel{
-    self.viewModel = [TLoginViewModel new];
-    [self.viewModel bindDataModel:self.model];
-    [self.viewModel.command excute:@"hello world"];
-//    [self.viewModel addObserver:self forKeyPath:@"command.result" options:NSKeyValueObservingOptionNew context:nil];
-    [self bindViewModel];
-}
-
-- (void)initModel{
-    self.model = [TLoginDataModel new];
     
-}
-
-- (void)bindViewModel{
+    self.model = [TLoginDataModel new];
+    self.viewModel = [TLoginViewModel new];
+    
+    // viewModel 绑定model
+    [self.viewModel bindDataModel:self.model];
+    
+    // view 绑定 viewModel
     [self.loginView bindViewModel:self.viewModel];
+    
+    
+    // 执行操作
+    [self.viewModel.command excute:@"hello world"];
 }
 
-- (void)dealloc{
-//    [self.viewModel removeObserver:self forKeyPath:@"command.result"];
-}
 
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-//    if ([@"name1" isEqualToString:keyPath] || [@"name2" isEqualToString:keyPath]) {
-//        if (change[NSKeyValueChangeNewKey]) {
-////            [self bindViewModel];
-//            NSLog(@"---%@",change[NSKeyValueChangeNewKey]);
-//        }
-//    } else if ([@"command.result" isEqualToString:keyPath]){
-//        NSLog(@"请求的结果 : %@",self.viewModel.command.result.responseObject);
-//    }
-//}
 
 @end

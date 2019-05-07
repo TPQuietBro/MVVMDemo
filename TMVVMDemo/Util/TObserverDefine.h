@@ -1,5 +1,5 @@
 //
-//  TBaseDefine.h
+//  TObserverDefine.h
 //  TMVVMDemo
 //
 //  Created by 唐鹏 on 2019/5/7.
@@ -12,9 +12,10 @@
 #define ASLog(fmt,...) NSLog((@"%s [Line %d] " fmt),__PRETTY_FUNCTION__,__LINE__,##__VA_ARGS__)
 #else
 #define ASLog(...)
+#endif
+#endif
 
-#endif
-#endif
+#define SAFE_BLOCK(block,...) (block ? block(__VA_ARGS__) : nil)
 
 /**
  自动关联对象的属性,避免kvo硬编码

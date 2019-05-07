@@ -8,8 +8,6 @@
 
 #import "TCommand.h"
 
-#define SAFE_BLOCK(block,...) (block ? block(__VA_ARGS__) : nil)
-
 @implementation TCommandResult
 
 @end
