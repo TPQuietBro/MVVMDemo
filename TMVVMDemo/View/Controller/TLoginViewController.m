@@ -24,7 +24,10 @@
     [super viewDidLoad];
     
     [self initSubviews];
-    [self setSubviewsLayout];
+    
+    [self initModel];
+    [self initViewModel];
+    
 }
 #pragma mark - init methods
 
@@ -40,54 +43,38 @@
     }];
     
     self.loginView = loginView;
-    
+}
+
+- (void)initViewModel{
     self.viewModel = [TLoginViewModel new];
+    [self.viewModel bindDataModel:self.model];
+    [self.viewModel.command excute:@"hello world"];
+//    [self.viewModel addObserver:self forKeyPath:@"command.result" options:NSKeyValueObservingOptionNew context:nil];
+    [self bindViewModel];
+}
+
+- (void)initModel{
     self.model = [TLoginDataModel new];
     
-    [self.viewModel bindDataModel:self.model];
-    [self refreshData];
-    
-    [self.viewModel addObserver:self forKeyPath:@"command.result" options:NSKeyValueObservingOptionNew context:nil];
-    
-    [self.viewModel.command excute:@"hello world"];
-   
 }
 
-- (void)dealloc{
-    [self.viewModel removeObserver:self forKeyPath:@"command.result"];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    if ([@"name1" isEqualToString:keyPath] || [@"name2" isEqualToString:keyPath]) {
-        if (change[NSKeyValueChangeNewKey]) {
-//            [self refreshData];
-            NSLog(@"---%@",change[NSKeyValueChangeNewKey]);
-        }
-    } else if ([@"command.result" isEqualToString:keyPath]){
-        NSLog(@"请求的结果 : %@",self.viewModel.command.result.responseObject);
-    }
-}
-
-- (void)refreshData{
+- (void)bindViewModel{
     [self.loginView bindViewModel:self.viewModel];
 }
 
-
-- (void)setSubviewsLayout{
-    
+- (void)dealloc{
+//    [self.viewModel removeObserver:self forKeyPath:@"command.result"];
 }
 
-#pragma mark - system delegate
-
-#pragma mark - custom delegate
-
-#pragma mark - api methods
-
-#pragma mark - event response
-
-#pragma mark - private
-
-#pragma mark - getter / setter
-
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+//    if ([@"name1" isEqualToString:keyPath] || [@"name2" isEqualToString:keyPath]) {
+//        if (change[NSKeyValueChangeNewKey]) {
+////            [self bindViewModel];
+//            NSLog(@"---%@",change[NSKeyValueChangeNewKey]);
+//        }
+//    } else if ([@"command.result" isEqualToString:keyPath]){
+//        NSLog(@"请求的结果 : %@",self.viewModel.command.result.responseObject);
+//    }
+//}
 
 @end

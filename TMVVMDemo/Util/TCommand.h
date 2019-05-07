@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSObject+TObserver.h"
+#import "TBaseDefine.h"
 
 typedef void(^CompletionHandler)(NSError *error,id responseObject);
 

@@ -9,6 +9,7 @@
 #import "TLoginView.h"
 #import "TLoginViewModel.h"
 #import <Masonry.h>
+#import "TCommand.h"
 
 @interface TLoginView()
 @property (nonatomic, strong) UIButton *button;
@@ -46,11 +47,16 @@
     }];
 }
 
-
 #pragma mark - public
 
 - (void)bindViewModel:(TLoginViewModel *)viewModel{
     self.viewModel = viewModel;
+    __weak typeof(self) weak_self = self;
+    
+    [T_Observe(self.viewModel, name1) statusChangeHandler:^(id newValue) {
+        weak_self.label1.text = newValue;
+    }];
+    
 }
 
 #pragma mark - event response
