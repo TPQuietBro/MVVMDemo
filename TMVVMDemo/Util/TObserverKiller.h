@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface TObserverKiller : NSObject
-- (void)t_addObserver:(NSObject *)observer keyPath:(NSString *)keyPath;
-- (void)t_removeAllObserver;
-- (void)t_removeObserver:(NSObject *)observer keyPath:(NSString *)keyPath;
+@property (nonatomic, strong) NSObject *target;
+@property (nonatomic, strong) NSObject *observer;
+@property (nonatomic, strong) NSString *keyPath;
+- (void)t_addObserver:(NSObject *)observer
+               target:(NSObject *)target
+              keyPath:(NSString *)keyPath;
 @end

@@ -9,21 +9,36 @@
 #import "TObserverKiller.h"
 #import "TObserverDefine.h"
 
+#define T_NULL_RETURN \
+if (!target || !keyPath) {\
+return;\
+}
+
 @interface TObserverKiller()
 @property (nonatomic, strong) NSMutableDictionary *observerDict;
+
 @end
 @implementation TObserverKiller
 
-- (void)t_addObserver:(NSObject *)observer keyPath:(NSString *)keyPath{
-    if (!observer || !keyPath) {
-        return;
-    }
-    [self.observerDict setObject:observer forKey:keyPath];
+- (void)t_addObserver:(NSObject *)observer target:(NSObject *)target keyPath:(NSString *)keyPath{
+    T_NULL_RETURN
+    _target = target;
+    _observer = observer;
+    _keyPath = keyPath;
 }
 
-- (void)t_removeObserver:(NSObject *)observer keyPath:(NSString *)keyPath{
-    NSObject
-    [self.observerDict removeObjectForKey:keyPath];
+- (void)dealloc{
+    [self.observerDict removeAllObjects];
+    if (!self.observer) {
+        return;
+    }
+    [self.target removeObserver:self.observer forKeyPath:self.keyPath];
+    ASLog(@"%@ 被释放了",self.observer);
+}
+
+- (void)t_removeObserverFor:(NSObject *)target keyPath:(NSString *)keyPath{
+    T_NULL_RETURN
+
 }
 
 - (void)t_removeAllObserver{

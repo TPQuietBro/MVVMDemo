@@ -11,12 +11,12 @@
 #import "TObserverDefine.h"
 #import "TObserverKiller.h"
 
-static NSMutableDictionary *_dict;
 static Handler _handler;
-static TObserverKiller *killer;
+static TObserverKiller *_killer;
 
 @interface NSObject()
 @property (nonatomic, strong) Handler handler;
+@property (nonatomic, strong) TObserverKiller *killer;
 @end
 
 @implementation NSObject (TObserver)
@@ -28,42 +28,60 @@ static TObserverKiller *killer;
         NSAssert(observer, @"observer must not be nil");
         return self;
     }
-    if (!_dict) {
-        _dict = [[NSMutableDictionary alloc] init];
+    
+    if (!_killer) {
+        _killer = [[TObserverKiller alloc] init];
+//        self.killer = [[TObserverKiller alloc] init];
     }
-    [_dict setObject:observer forKey:keyPath];
+    [self.killer t_addObserver:observer target:self keyPath:keyPath];
+    ASLog(@"killer : %@",self.killer);
     
     [self addObserver:observer forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+    
     return self;
 }
 
-#pragma mark - KVO
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    if (!_dict) {
-        ASLog(@"obDict is nil");
+    
+    if (!self.killer) {
+        ASLog(@"killer is nil");
         return;
     }
-    [_dict enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, id _Nonnull obj, BOOL * _Nonnull stop) {
-        if ([keyPath isEqualToString:key]) {
-            ASLog(@"handler : %@",_handler);
-            SAFE_BLOCK(_handler,change[NSKeyValueChangeNewKey],obj);
-        }
-    }];
+    
+    if ([self.killer.keyPath isEqualToString:keyPath]) {
+        SAFE_BLOCK(self.handler,change[NSKeyValueChangeNewKey],self);
+    }
 }
 
+
 - (void)statusChangeHandler:(Handler)handler{
-    _handler = [handler copy];
+    self.handler = [handler copy];
 }
 
 #pragma mark - association
+
+- (void)setKiller:(TObserverKiller *)killer{
+    objc_setAssociatedObject(self, @selector(setKiller:), killer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (TObserverKiller *)killer{
+    TObserverKiller *killer = objc_getAssociatedObject(self, @selector(setKiller:));
+    if (!killer) {
+        killer = [[TObserverKiller alloc] init];
+    }
+    return killer;
+}
 
 - (void)setHandler:(Handler)handler{
     objc_setAssociatedObject(self, @selector(setHandler:), handler, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (Handler)handler{
-    return objc_getAssociatedObject(self, @selector(setHandler:));
+    Handler handler = objc_getAssociatedObject(self, @selector(setHandler:));
+    if (!handler) {
+        handler = ^(id newValue,id observer){};
+    }
+    return handler;
 }
 
 @end
