@@ -17,6 +17,8 @@
 
 #define SAFE_BLOCK(block,...) (block ? block(__VA_ARGS__) : nil)
 
+typedef void(^Handler)(NSDictionary *change,id target,NSString *keyPath);
+
 /**
  自动关联对象的属性,避免kvo硬编码
  */

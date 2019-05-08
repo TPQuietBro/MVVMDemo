@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TObserverDefine.h"
 
 @interface TObserverKiller : NSObject
-@property (nonatomic, strong) NSObject *target;
-@property (nonatomic, strong) NSObject *observer;
+
+@property (nonatomic, weak) NSObject *target;
 @property (nonatomic, strong) NSString *keyPath;
-- (void)t_addObserver:(NSObject *)observer
-               target:(NSObject *)target
-              keyPath:(NSString *)keyPath;
+
+- (void)t_addObserverForTarget:(NSObject *)target
+                       keyPath:(NSString *)keyPath handler:(Handler)handler;
 @end

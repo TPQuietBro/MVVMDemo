@@ -10,10 +10,13 @@
 #import "TLoginViewModel.h"
 #import <Masonry.h>
 #import "TCommand.h"
+#import "TObserverKiller.h"
+#import "TObserver.h"
 
 @interface TLoginView()
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UILabel *label1;
+@property (nonatomic, strong) UILabel *label2;
 @property (nonatomic, strong) TLoginViewModel *viewModel;
 @end
 @implementation TLoginView
@@ -34,15 +37,22 @@
     self.backgroundColor = [UIColor redColor];
     [self addSubview:self.button];
     [self addSubview:self.label1];
+    [self addSubview:self.label2];
     
     [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(self);
+        make.top.mas_equalTo(0);
+        make.centerX.mas_equalTo(self);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(30);
     }];
     
     [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.button.mas_bottom).mas_equalTo(5);
+        make.centerX.mas_equalTo(self);
+    }];
+    
+    [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label1.mas_bottom).mas_equalTo(5);
         make.centerX.mas_equalTo(self);
     }];
 }
@@ -52,25 +62,44 @@
 - (void)bindViewModel:(TLoginViewModel *)viewModel{
     self.viewModel = viewModel;
     self.label1.text = viewModel.name1;
+    self.label2.text = viewModel.name2;
+    
     __weak typeof(self) weak_self = self;
+
+//    T_Observe_Handler(self.viewModel, name1, ^(NSDictionary *change, id target, NSString *keyPath){
+//        id newValue = change[NSKeyValueChangeNewKey];
+//        weak_self.label1.text = newValue;
+//    });
+
+//    T_Observe_Handler(self.viewModel, name2, ^(NSDictionary *change, id target, NSString *keyPath){
+//        id newValue = change[NSKeyValueChangeNewKey];
+//        weak_self.label2.text = newValue;
+//    });
     
-    [T_Observe(self.viewModel, name1) statusChangeHandler:^(id newValue,id observer) {
-        weak_self.label1.text = newValue;
-    }];
+//    Handler handler = nil;
+//    T_Observe_Multi_Handler(self.viewModel, @[@"name1",@"name2"], handler);
+//    ^(NSDictionary *change, id target, NSString *keyPath){
+//        id newValue = change[NSKeyValueChangeNewKey];
+//        weak_self.label2.text = newValue;
+//    }
     
+    T_Observe_Multi_Handler(self.viewModel, (@[@"name1",@"name2"]), ^(NSDictionary *change, id target, NSString *keyPath){
+        id newValue = change[NSKeyValueChangeNewKey];
+        if ([keyPath isEqualToString:@t_keypath(weak_self.viewModel,name1)]) {
+            weak_self.label1.text = newValue;
+        } else {
+            weak_self.label2.text = newValue;
+        }
+    });
 }
 
 #pragma mark - event response
 - (void)login:(UIButton *)sender{
-    sender.selected = !sender.selected;
-    if (sender.selected) {
-        self.label1.text = self.viewModel.name1;
-    } else {
-        self.label1.text = self.viewModel.name2;
-    }
+    
 }
 
 #pragma mark - getter / setter
+
 - (UIButton *)button{
     if (!_button) {
         _button = [[UIButton alloc] init];
@@ -84,8 +113,16 @@
 - (UILabel *)label1{
     if (!_label1) {
         _label1 = [[UILabel alloc] init];
-        _label1.text = @"我是label";
+        _label1.text = @"我是label1";
     }
     return _label1;
+}
+
+- (UILabel *)label2{
+    if (!_label2) {
+        _label2 = [[UILabel alloc] init];
+        _label2.text = @"我是label2";
+    }
+    return _label2;
 }
 @end

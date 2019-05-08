@@ -7,14 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TObserverDefine.h"
 
-#define T_Observe(target,keypath) [target addObserver:self keyPath:@t_keypath(target,keypath)]
+#define T_Observe_Handler(target,keypath,handlerBlock) [target addObserver:self keyPath:@t_keypath(target,keypath) handler:handlerBlock]
 
-typedef void(^Handler)(id newValue,id observer);
-
+#define T_Observe_Multi_Handler(target,_keys,handlerBlock) [target addObserver:self keyPaths:_keys handler:handlerBlock]
+@class TObserverInfo;
 @interface NSObject (TObserver)
-- (NSObject *)addObserver:(NSObject *)observer keyPath:(NSString *)keyPath;
-- (void)statusChangeHandler:(Handler)handler;
+
+- (TObserverInfo *)addObserver:(NSObject *)observer keyPath:(NSString *)keyPath handler:(Handler)handler;
+
+- (void)addObserver:(NSObject *)observer keyPaths:(NSArray<NSString *> *)keyPaths handler:(Handler)handler;
+
 
 @end
 

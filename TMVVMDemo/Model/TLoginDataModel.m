@@ -35,10 +35,11 @@
 
 #pragma mark - private
 - (void)handleData:(void (^)(id))block{
-    SAFE_BLOCK(block,@"这是初始值");
+//    SAFE_BLOCK(block,@"这是初始值");
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        SAFE_BLOCK(block,@"数据改变了被监听到了");
+        SAFE_BLOCK(block,@[@"label1数据改变了被监听到了",@"label2数据改变了被监听到了"]);
     });
 }
+
 #pragma mark - getter / setter
 @end

@@ -37,9 +37,14 @@
 - (void)bindDataModel:(TLoginDataModel *)dataModel{
     self.dataModel = dataModel;
     __weak typeof(self) weak_self = self;
-    [self.dataModel handleData:^(NSString *data) {
-        weak_self.name1 = data;
+    [self.dataModel handleData:^(NSArray *data) {
+        weak_self.name1 = data.firstObject;
+        weak_self.name2 = data.lastObject;
     }];
+}
+
+- (void)dealloc{
+    ASLog(@"viewModel dealloced");
 }
 
 #pragma mark - system delegate

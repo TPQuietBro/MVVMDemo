@@ -21,6 +21,7 @@
 		AF1EF61C2280559500CCA593 /* TCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF61B2280559500CCA593 /* TCommand.m */; };
 		AF1EF61F2281370600CCA593 /* TObserverKiller.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF61E2281370600CCA593 /* TObserverKiller.m */; };
 		AF1EF6222281373200CCA593 /* NSObject+TObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF6212281373200CCA593 /* NSObject+TObserver.m */; };
+		AF1EF6272282DD1700CCA593 /* TObserverInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF6262282DD1700CCA593 /* TObserverInfo.m */; };
 		CB75553DC45F7F1D8B2B3509 /* libPods-TMVVMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7309CFBEA0710DD1E5B6FD79 /* libPods-TMVVMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,9 @@
 		AF1EF6202281373200CCA593 /* NSObject+TObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+TObserver.h"; sourceTree = "<group>"; };
 		AF1EF6212281373200CCA593 /* NSObject+TObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TObserver.m"; sourceTree = "<group>"; };
 		AF1EF62322815A1100CCA593 /* TObserverDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TObserverDefine.h; sourceTree = "<group>"; };
+		AF1EF6242282A97F00CCA593 /* TObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TObserver.h; sourceTree = "<group>"; };
+		AF1EF6252282DD1700CCA593 /* TObserverInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TObserverInfo.h; sourceTree = "<group>"; };
+		AF1EF6262282DD1700CCA593 /* TObserverInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TObserverInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +184,10 @@
 				AF1EF6212281373200CCA593 /* NSObject+TObserver.m */,
 				AF1EF61D2281370600CCA593 /* TObserverKiller.h */,
 				AF1EF61E2281370600CCA593 /* TObserverKiller.m */,
+				AF1EF6252282DD1700CCA593 /* TObserverInfo.h */,
+				AF1EF6262282DD1700CCA593 /* TObserverInfo.m */,
 				AF1EF62322815A1100CCA593 /* TObserverDefine.h */,
+				AF1EF6242282A97F00CCA593 /* TObserver.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -339,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF1EF61C2280559500CCA593 /* TCommand.m in Sources */,
+				AF1EF6272282DD1700CCA593 /* TObserverInfo.m in Sources */,
 				AF1EF610227F173200CCA593 /* TLoginView.m in Sources */,
 				AF1EF5E6227F167C00CCA593 /* ViewController.m in Sources */,
 				AF1EF6222281373200CCA593 /* NSObject+TObserver.m in Sources */,

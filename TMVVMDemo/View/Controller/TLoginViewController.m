@@ -36,7 +36,7 @@
     [self.view addSubview:loginView];
     [loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(280, 100));
+        make.size.mas_equalTo(CGSizeMake(280, 140));
     }];
     
     self.loginView = loginView;
@@ -53,8 +53,9 @@
     
     // 执行操作
     [self.viewModel.command excute:@"hello world"];
-}
 
+    
+}
 
 
 @end

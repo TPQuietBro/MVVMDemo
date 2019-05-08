@@ -7,49 +7,102 @@
 //
 
 #import "TObserverKiller.h"
-#import "TObserverDefine.h"
-
+#include <pthread.h>
 #define T_NULL_RETURN \
 if (!target || !keyPath) {\
 return;\
 }
 
 @interface TObserverKiller()
-@property (nonatomic, strong) NSMutableDictionary *observerDict;
-
+{
+    pthread_mutex_t _lock;
+}
+@property (nonatomic, strong) NSMapTable *targetDict;
+@property (nonatomic, strong) NSMapTable *handlerDict;
+@property (nonatomic, strong) Handler handler;
 @end
 @implementation TObserverKiller
 
-- (void)t_addObserver:(NSObject *)observer target:(NSObject *)target keyPath:(NSString *)keyPath{
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        pthread_mutex_init(&_lock, NULL);
+    }
+    return self;
+}
+
+- (void)t_addObserverForTarget:(NSObject *)target keyPath:(NSString *)keyPath handler:(Handler)handler{
     T_NULL_RETURN
+    pthread_mutex_lock(&_lock);
+    [self.targetDict setObject:target forKey:keyPath];
+    [self.handlerDict setObject:handler forKey:keyPath];
+    pthread_mutex_unlock(&_lock);
+    
     _target = target;
-    _observer = observer;
     _keyPath = keyPath;
+    _handler = [handler copy];
+    
+    [target addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    
+    if (!self.targetDict) {
+        ASLog(@"dict is nil");
+        return;
+    }
+    if ([self.targetDict objectForKey:keyPath]) {
+        ASLog(@"newValue : %@",change[NSKeyValueChangeNewKey]);
+        Handler handler = [self.handlerDict objectForKey:keyPath];
+        SAFE_BLOCK(handler,change,[self.targetDict objectForKey:keyPath],keyPath);
+    }
+//    if ([_keyPath isEqualToString:keyPath]) {
+//        SAFE_BLOCK(_handler,change,[self.targetDict objectForKey:keyPath],keyPath);
+//    }
 }
 
 - (void)dealloc{
-    [self.observerDict removeAllObjects];
-    if (!self.observer) {
+    if (!self) {
         return;
     }
-    [self.target removeObserver:self.observer forKeyPath:self.keyPath];
-    ASLog(@"%@ 被释放了",self.observer);
-}
-
-- (void)t_removeObserverFor:(NSObject *)target keyPath:(NSString *)keyPath{
-    T_NULL_RETURN
-
+    
+    [self t_removeAllObserver];
+    
+//    [_target removeObserver:self forKeyPath:_keyPath];
+    
+    ASLog(@"%@ 被释放了",self);
 }
 
 - (void)t_removeAllObserver{
-    
+    pthread_mutex_lock(&_lock);
+    [[self.targetDict.keyEnumerator allObjects] enumerateObjectsUsingBlock:^(NSString *  _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        id target = [self.targetDict objectForKey:key];
+        [target removeObserver:self forKeyPath:key];
+        ASLog(@"%@ 移除了观察者",target);
+    }];
+    [self.targetDict removeAllObjects];
+    [self.handlerDict removeAllObjects];
+    pthread_mutex_unlock(&_lock);
 }
 
 #pragma mark - getter / setter
-- (NSMutableDictionary *)observerDict{
-    if (!_observerDict) {
-        _observerDict = [[NSMutableDictionary alloc] init];
+
+- (TObserverKiller *)subKiller{
+    return [[TObserverKiller alloc] init];
+}
+
+- (NSMapTable *)targetDict{
+    if (!_targetDict) {
+        _targetDict = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory valueOptions:NSPointerFunctionsWeakMemory];
     }
-    return _observerDict;
+    return _targetDict;
+}
+
+- (NSMapTable *)handlerDict{
+    if (!_handlerDict) {
+        _handlerDict = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory valueOptions:NSPointerFunctionsStrongMemory];
+    }
+    return _handlerDict;
 }
 @end

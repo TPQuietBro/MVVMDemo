@@ -3,4 +3,5 @@
 
 target 'TMVVMDemo' do
     pod 'Masonry'
+    pod 'MLeaksFinder'
 end
