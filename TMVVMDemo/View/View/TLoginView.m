@@ -36,7 +36,7 @@
 }
 
 - (void)initSubviews{
-    self.backgroundColor = [UIColor orangeColor];
+    self.backgroundColor = [UIColor grayColor];
     [self addSubview:self.button];
     [self addSubview:self.label1];
     [self addSubview:self.textF1];
@@ -44,7 +44,7 @@
     [self addSubview:self.textF2];
     
     [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(0);
+        make.bottom.mas_equalTo(-5);
         make.centerX.mas_equalTo(self);
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(30);
@@ -118,10 +118,12 @@
     if (!_button) {
         _button = [[UIButton alloc] init];
         _button.enabled = NO;
+        _button.layer.cornerRadius = 4;
+        _button.layer.masksToBounds = YES;
         [_button setTitle:@"login" forState:UIControlStateNormal];
         [_button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [_button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-        [_button setBackgroundColor:[UIColor whiteColor]];
+        [_button setBackgroundColor:[UIColor orangeColor]];
         [_button addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _button;
@@ -139,6 +141,7 @@
     if (!_textF1) {
         _textF1 = [[UITextField alloc] init];
         _textF1.placeholder = @"请输入账号...";
+        _textF1.borderStyle = UITextBorderStyleRoundedRect;
         [_textF1 addTarget:self action:@selector(acountInput:) forControlEvents:UIControlEventEditingChanged];
     }
     return _textF1;
@@ -148,6 +151,7 @@
     if (!_textF2) {
         _textF2 = [[UITextField alloc] init];
         _textF2.placeholder = @"请输入密码...";
+        _textF2.borderStyle = UITextBorderStyleRoundedRect;
         [_textF2 addTarget:self action:@selector(pwdInput:) forControlEvents:UIControlEventEditingChanged];
     }
     return _textF2;

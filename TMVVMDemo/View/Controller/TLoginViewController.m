@@ -63,7 +63,6 @@
         [self.resultLabel setText:newValue.responseObject];
     }];
     
-    
     // 显示结果
     [self.view addSubview:self.resultLabel];
     [self.resultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
