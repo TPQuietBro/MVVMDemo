@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TObserverDefine.h"
 @class TObserverKiller;
 @interface TObserverInfo : NSObject
-@property (nonatomic, strong) NSObject *target;
+@property (nonatomic, assign) NSKeyValueObservingOptions options;
 @property (nonatomic, strong) NSString *keyPath;
-- (instancetype)initWithObserverKiller:(TObserverKiller *)killer;
+@property (nonatomic, strong) Handler handler;
+- (instancetype)initWithKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options handler:(Handler)handler;
 @end

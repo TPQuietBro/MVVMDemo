@@ -17,6 +17,12 @@
 
 #define SAFE_BLOCK(block,...) (block ? block(__VA_ARGS__) : nil)
 
+#define Weakify(obj) \
+__weak __typeof__(obj) obj##_weak_ = obj;
+
+#define Strongify(obj) \
+__strong __typeof__(obj##_weak_) obj = obj##_weak_;
+
 typedef void(^Handler)(NSDictionary *change,id target,NSString *keyPath);
 
 /**

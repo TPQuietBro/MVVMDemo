@@ -10,8 +10,6 @@
 #import "TCommand.h"
 @class TLoginDataModel;
 @interface TLoginViewModel : NSObject
-@property (nonatomic, strong, readonly) NSString *name1;
-@property (nonatomic, strong, readonly) NSString *name2;
 @property (nonatomic, strong) TCommand *command;
 - (void)bindDataModel:(TLoginDataModel *)dataModel;
 @end

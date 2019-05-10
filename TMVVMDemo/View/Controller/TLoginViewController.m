@@ -11,11 +11,15 @@
 #import <Masonry.h>
 #import "TLoginDataModel.h"
 #import "TLoginViewModel.h"
+#import "TObserver.h"
 
 @interface TLoginViewController ()
 @property (nonatomic, strong) TLoginView *loginView;
 @property (nonatomic, strong) TLoginDataModel *model;
 @property (nonatomic, strong) TLoginViewModel *viewModel;
+@property (nonatomic, strong) TObserverAgent *kvoAgent;
+
+@property (nonatomic, strong) UILabel *resultLabel;
 @end
 
 @implementation TLoginViewController
@@ -49,12 +53,32 @@
     
     // view 绑定 viewModel
     [self.loginView bindViewModel:self.viewModel];
-    
-    
-    // 执行操作
-    [self.viewModel.command excute:@"hello world"];
 
+    // 监听网络回调
+    Weakify(self);
+    self.kvoAgent = [[TObserverAgent alloc] init];
+    [self.kvoAgent t_addObserverForTarget:self.viewModel keyPath:@t_keypath(self.viewModel,command.result) handler:^(NSDictionary *change, id target, NSString *keyPath) {
+        Strongify(self);
+        TCommandResult *newValue = change[NSKeyValueChangeNewKey];
+        [self.resultLabel setText:newValue.responseObject];
+    }];
     
+    
+    // 显示结果
+    [self.view addSubview:self.resultLabel];
+    [self.resultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(100);
+        make.centerX.mas_equalTo(self.view);
+    }];
+}
+
+- (UILabel *)resultLabel{
+    if (!_resultLabel) {
+        _resultLabel = [[UILabel alloc] init];
+        _resultLabel.textColor = [UIColor purpleColor];
+        _resultLabel.font = [UIFont boldSystemFontOfSize:15];
+    }
+    return _resultLabel;
 }
 
 

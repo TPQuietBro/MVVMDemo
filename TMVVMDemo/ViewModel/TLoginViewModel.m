@@ -25,22 +25,18 @@
 }
 
 - (void)initItems{
+    Weakify(self);
     self.command = [[TCommand alloc] initWithRequestBlock:^(id param, CompletionHandler completionHandler) {
-        NSLog(@"传入的参数是 : %@",param);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            completionHandler(nil,@"request success");
-        });
+        Strongify(self);
+        [self.dataModel requestToLoginWithParam:param completionBlock:^(id responseObject, NSError *error) {
+            SAFE_BLOCK(completionHandler,error,responseObject);
+        }];
     }];
 }
 
 #pragma mark - public
 - (void)bindDataModel:(TLoginDataModel *)dataModel{
     self.dataModel = dataModel;
-    __weak typeof(self) weak_self = self;
-    [self.dataModel handleData:^(NSArray *data) {
-        weak_self.name1 = data.firstObject;
-        weak_self.name2 = data.lastObject;
-    }];
 }
 
 - (void)dealloc{

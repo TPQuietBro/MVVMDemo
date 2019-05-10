@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TCommand.h"
 @interface TLoginDataModel : NSObject
-- (void)handleData:(void(^)(id data))block;
+- (void)requestToLoginWithParam:(id)param completionBlock:(void(^)(id responseObject,NSError *error))block;
 @end

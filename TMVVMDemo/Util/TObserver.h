@@ -7,6 +7,6 @@
 //
 
 #import "TCommand.h"
-#import "NSObject+TObserver.h"
 #import "TObserverDefine.h"
-
+#import "TObserverInfo.h"
+#import "TObserverAgent.h"

@@ -7,12 +7,12 @@
 //
 
 #import "TObserverInfo.h"
-#import "TObserverKiller.h"
 @implementation TObserverInfo
-- (instancetype)initWithObserverKiller:(TObserverKiller *)killer{
+- (instancetype)initWithKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options handler:(Handler)handler{
     if (self = [super init]) {
-        _target = killer.target;
-        _keyPath = killer.keyPath;
+        _keyPath = keyPath;
+        _options = options;
+        _handler = [handler copy];
     }
     return self;
 }

@@ -25,19 +25,12 @@
     
 }
 
-#pragma mark - system delegate
-
-#pragma mark - custom delegate
-
-#pragma mark - api methods
-
-#pragma mark - event response
-
-#pragma mark - private
-- (void)handleData:(void (^)(id))block{
-//    SAFE_BLOCK(block,@"这是初始值");
+- (void)requestToLoginWithParam:(id)param completionBlock:(void (^)(id, NSError *))block{
+    NSLog(@"传入的参数是 : %@",param);
+    // 模拟网络延迟
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        SAFE_BLOCK(block,@[@"label1数据改变了被监听到了",@"label2数据改变了被监听到了"]);
+        NSString *result = [NSString stringWithFormat:@"%@ 登录成功了",param[@"username"]];
+        block(result,nil);
     });
 }
 
