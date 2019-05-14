@@ -13,5 +13,6 @@
 @property (nonatomic, assign) NSKeyValueObservingOptions options;
 @property (nonatomic, strong) NSString *keyPath;
 @property (nonatomic, strong) Handler handler;
-- (instancetype)initWithKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options handler:(Handler)handler;
+@property (nonatomic, strong) NSObject *target;
+- (instancetype)initWithTarget:(NSObject *)target keyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options handler:(Handler)handler;
 @end

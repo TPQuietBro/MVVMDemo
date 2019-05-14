@@ -18,9 +18,9 @@
 		AF1EF610227F173200CCA593 /* TLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF60F227F173200CCA593 /* TLoginView.m */; };
 		AF1EF613227F174A00CCA593 /* TLoginDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF612227F174A00CCA593 /* TLoginDataModel.m */; };
 		AF1EF616227F175A00CCA593 /* TLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF615227F175A00CCA593 /* TLoginViewModel.m */; };
-		AF1EF61C2280559500CCA593 /* TCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF61B2280559500CCA593 /* TCommand.m */; };
-		AF1EF61F2281370600CCA593 /* TObserverAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF61E2281370600CCA593 /* TObserverAgent.m */; };
-		AF1EF6272282DD1700CCA593 /* TObserverInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1EF6262282DD1700CCA593 /* TObserverInfo.m */; };
+		AF3B95852289719200B93434 /* TObserverAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B957C2289719200B93434 /* TObserverAgent.m */; };
+		AF3B95862289719200B93434 /* TObserverInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B957D2289719200B93434 /* TObserverInfo.m */; };
+		AF3B95872289719200B93434 /* TCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B95842289719200B93434 /* TCommand.m */; };
 		CB75553DC45F7F1D8B2B3509 /* libPods-TMVVMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7309CFBEA0710DD1E5B6FD79 /* libPods-TMVVMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -59,14 +59,14 @@
 		AF1EF612227F174A00CCA593 /* TLoginDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLoginDataModel.m; sourceTree = "<group>"; };
 		AF1EF614227F175A00CCA593 /* TLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLoginViewModel.h; sourceTree = "<group>"; };
 		AF1EF615227F175A00CCA593 /* TLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLoginViewModel.m; sourceTree = "<group>"; };
-		AF1EF61A2280559500CCA593 /* TCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCommand.h; sourceTree = "<group>"; };
-		AF1EF61B2280559500CCA593 /* TCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCommand.m; sourceTree = "<group>"; };
-		AF1EF61D2281370600CCA593 /* TObserverAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TObserverAgent.h; sourceTree = "<group>"; };
-		AF1EF61E2281370600CCA593 /* TObserverAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TObserverAgent.m; sourceTree = "<group>"; };
-		AF1EF62322815A1100CCA593 /* TObserverDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TObserverDefine.h; sourceTree = "<group>"; };
-		AF1EF6242282A97F00CCA593 /* TObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TObserver.h; sourceTree = "<group>"; };
-		AF1EF6252282DD1700CCA593 /* TObserverInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TObserverInfo.h; sourceTree = "<group>"; };
-		AF1EF6262282DD1700CCA593 /* TObserverInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TObserverInfo.m; sourceTree = "<group>"; };
+		AF3B957C2289719200B93434 /* TObserverAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TObserverAgent.m; sourceTree = "<group>"; };
+		AF3B957D2289719200B93434 /* TObserverInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TObserverInfo.m; sourceTree = "<group>"; };
+		AF3B957E2289719200B93434 /* TObserverDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TObserverDefine.h; sourceTree = "<group>"; };
+		AF3B957F2289719200B93434 /* TObserverInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TObserverInfo.h; sourceTree = "<group>"; };
+		AF3B95802289719200B93434 /* TObserverAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TObserverAgent.h; sourceTree = "<group>"; };
+		AF3B95812289719200B93434 /* TObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TObserver.h; sourceTree = "<group>"; };
+		AF3B95832289719200B93434 /* TCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCommand.h; sourceTree = "<group>"; };
+		AF3B95842289719200B93434 /* TCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,14 +175,8 @@
 		AF1EF607227F16DC00CCA593 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				AF1EF61A2280559500CCA593 /* TCommand.h */,
-				AF1EF61B2280559500CCA593 /* TCommand.m */,
-				AF1EF61D2281370600CCA593 /* TObserverAgent.h */,
-				AF1EF61E2281370600CCA593 /* TObserverAgent.m */,
-				AF1EF6252282DD1700CCA593 /* TObserverInfo.h */,
-				AF1EF6262282DD1700CCA593 /* TObserverInfo.m */,
-				AF1EF62322815A1100CCA593 /* TObserverDefine.h */,
-				AF1EF6242282A97F00CCA593 /* TObserver.h */,
+				AF3B95822289719200B93434 /* TCommand */,
+				AF3B957B2289719100B93434 /* TKVOAgent */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -212,6 +206,28 @@
 				AF1EF60F227F173200CCA593 /* TLoginView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AF3B957B2289719100B93434 /* TKVOAgent */ = {
+			isa = PBXGroup;
+			children = (
+				AF3B95812289719200B93434 /* TObserver.h */,
+				AF3B957E2289719200B93434 /* TObserverDefine.h */,
+				AF3B95802289719200B93434 /* TObserverAgent.h */,
+				AF3B957C2289719200B93434 /* TObserverAgent.m */,
+				AF3B957F2289719200B93434 /* TObserverInfo.h */,
+				AF3B957D2289719200B93434 /* TObserverInfo.m */,
+			);
+			path = TKVOAgent;
+			sourceTree = "<group>";
+		};
+		AF3B95822289719200B93434 /* TCommand */ = {
+			isa = PBXGroup;
+			children = (
+				AF3B95832289719200B93434 /* TCommand.h */,
+				AF3B95842289719200B93434 /* TCommand.m */,
+			);
+			path = TCommand;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,15 +356,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF1EF61C2280559500CCA593 /* TCommand.m in Sources */,
-				AF1EF6272282DD1700CCA593 /* TObserverInfo.m in Sources */,
 				AF1EF610227F173200CCA593 /* TLoginView.m in Sources */,
+				AF3B95862289719200B93434 /* TObserverInfo.m in Sources */,
 				AF1EF5E6227F167C00CCA593 /* ViewController.m in Sources */,
-				AF1EF61F2281370600CCA593 /* TObserverAgent.m in Sources */,
 				AF1EF5F1227F167E00CCA593 /* main.m in Sources */,
 				AF1EF5E3227F167C00CCA593 /* AppDelegate.m in Sources */,
 				AF1EF613227F174A00CCA593 /* TLoginDataModel.m in Sources */,
 				AF1EF60D227F170900CCA593 /* TLoginViewController.m in Sources */,
+				AF3B95852289719200B93434 /* TObserverAgent.m in Sources */,
+				AF3B95872289719200B93434 /* TCommand.m in Sources */,
 				AF1EF616227F175A00CCA593 /* TLoginViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

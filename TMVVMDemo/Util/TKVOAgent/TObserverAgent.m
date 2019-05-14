@@ -38,7 +38,7 @@ return;\
     
     pthread_mutex_lock(&_lock);
     
-    TObserverInfo *info = [[TObserverInfo alloc] initWithKeyPath:keyPath options:NSKeyValueObservingOptionNew handler:handler];
+    TObserverInfo *info = [[TObserverInfo alloc] initWithTarget:target keyPath:keyPath options:NSKeyValueObservingOptionNew handler:handler];
     
     NSMutableSet *infos = [self.infoDict objectForKey:target];
     if ([infos member:info]) {
