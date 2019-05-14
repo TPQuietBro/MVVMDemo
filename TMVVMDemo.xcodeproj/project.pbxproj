@@ -21,6 +21,12 @@
 		AF3B95852289719200B93434 /* TObserverAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B957C2289719200B93434 /* TObserverAgent.m */; };
 		AF3B95862289719200B93434 /* TObserverInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B957D2289719200B93434 /* TObserverInfo.m */; };
 		AF3B95872289719200B93434 /* TCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B95842289719200B93434 /* TCommand.m */; };
+		AF3B958B228A6C7900B93434 /* UIButton+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B958A228A6C7900B93434 /* UIButton+Event.m */; };
+		AF3B958E228A6C8800B93434 /* UIView+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B958D228A6C8800B93434 /* UIView+Event.m */; };
+		AF3B9591228A6C9E00B93434 /* UILabel+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B9590228A6C9E00B93434 /* UILabel+Event.m */; };
+		AF3B9594228A6CB000B93434 /* UITextField+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B9593228A6CB000B93434 /* UITextField+Event.m */; };
+		AF3B9597228A6DB200B93434 /* UIControl+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B9596228A6DB200B93434 /* UIControl+Event.m */; };
+		AF3B959B228AC78700B93434 /* TViewPropertyAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B959A228AC78700B93434 /* TViewPropertyAgent.m */; };
 		CB75553DC45F7F1D8B2B3509 /* libPods-TMVVMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7309CFBEA0710DD1E5B6FD79 /* libPods-TMVVMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +73,19 @@
 		AF3B95812289719200B93434 /* TObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TObserver.h; sourceTree = "<group>"; };
 		AF3B95832289719200B93434 /* TCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCommand.h; sourceTree = "<group>"; };
 		AF3B95842289719200B93434 /* TCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCommand.m; sourceTree = "<group>"; };
+		AF3B9589228A6C7900B93434 /* UIButton+Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Event.h"; sourceTree = "<group>"; };
+		AF3B958A228A6C7900B93434 /* UIButton+Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Event.m"; sourceTree = "<group>"; };
+		AF3B958C228A6C8800B93434 /* UIView+Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Event.h"; sourceTree = "<group>"; };
+		AF3B958D228A6C8800B93434 /* UIView+Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Event.m"; sourceTree = "<group>"; };
+		AF3B958F228A6C9E00B93434 /* UILabel+Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Event.h"; sourceTree = "<group>"; };
+		AF3B9590228A6C9E00B93434 /* UILabel+Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Event.m"; sourceTree = "<group>"; };
+		AF3B9592228A6CB000B93434 /* UITextField+Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Event.h"; sourceTree = "<group>"; };
+		AF3B9593228A6CB000B93434 /* UITextField+Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Event.m"; sourceTree = "<group>"; };
+		AF3B9595228A6DB200B93434 /* UIControl+Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+Event.h"; sourceTree = "<group>"; };
+		AF3B9596228A6DB200B93434 /* UIControl+Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Event.m"; sourceTree = "<group>"; };
+		AF3B9598228A704200B93434 /* TUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TUIKit.h; sourceTree = "<group>"; };
+		AF3B9599228AC78700B93434 /* TViewPropertyAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TViewPropertyAgent.h; sourceTree = "<group>"; };
+		AF3B959A228AC78700B93434 /* TViewPropertyAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TViewPropertyAgent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +194,7 @@
 		AF1EF607227F16DC00CCA593 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AF3B9588228A6C0300B93434 /* TUIKit */,
 				AF3B95822289719200B93434 /* TCommand */,
 				AF3B957B2289719100B93434 /* TKVOAgent */,
 			);
@@ -228,6 +248,26 @@
 				AF3B95842289719200B93434 /* TCommand.m */,
 			);
 			path = TCommand;
+			sourceTree = "<group>";
+		};
+		AF3B9588228A6C0300B93434 /* TUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				AF3B9598228A704200B93434 /* TUIKit.h */,
+				AF3B9589228A6C7900B93434 /* UIButton+Event.h */,
+				AF3B958A228A6C7900B93434 /* UIButton+Event.m */,
+				AF3B958C228A6C8800B93434 /* UIView+Event.h */,
+				AF3B958D228A6C8800B93434 /* UIView+Event.m */,
+				AF3B958F228A6C9E00B93434 /* UILabel+Event.h */,
+				AF3B9590228A6C9E00B93434 /* UILabel+Event.m */,
+				AF3B9592228A6CB000B93434 /* UITextField+Event.h */,
+				AF3B9593228A6CB000B93434 /* UITextField+Event.m */,
+				AF3B9595228A6DB200B93434 /* UIControl+Event.h */,
+				AF3B9596228A6DB200B93434 /* UIControl+Event.m */,
+				AF3B9599228AC78700B93434 /* TViewPropertyAgent.h */,
+				AF3B959A228AC78700B93434 /* TViewPropertyAgent.m */,
+			);
+			path = TUIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,13 +396,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF3B9597228A6DB200B93434 /* UIControl+Event.m in Sources */,
+				AF3B9594228A6CB000B93434 /* UITextField+Event.m in Sources */,
+				AF3B959B228AC78700B93434 /* TViewPropertyAgent.m in Sources */,
 				AF1EF610227F173200CCA593 /* TLoginView.m in Sources */,
 				AF3B95862289719200B93434 /* TObserverInfo.m in Sources */,
 				AF1EF5E6227F167C00CCA593 /* ViewController.m in Sources */,
+				AF3B9591228A6C9E00B93434 /* UILabel+Event.m in Sources */,
 				AF1EF5F1227F167E00CCA593 /* main.m in Sources */,
 				AF1EF5E3227F167C00CCA593 /* AppDelegate.m in Sources */,
 				AF1EF613227F174A00CCA593 /* TLoginDataModel.m in Sources */,
 				AF1EF60D227F170900CCA593 /* TLoginViewController.m in Sources */,
+				AF3B958E228A6C8800B93434 /* UIView+Event.m in Sources */,
+				AF3B958B228A6C7900B93434 /* UIButton+Event.m in Sources */,
 				AF3B95852289719200B93434 /* TObserverAgent.m in Sources */,
 				AF3B95872289719200B93434 /* TCommand.m in Sources */,
 				AF1EF616227F175A00CCA593 /* TLoginViewModel.m in Sources */,

@@ -52,18 +52,26 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ROA-aC-3cp"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvN-EG-6qO">
+                                <rect key="frame" x="0.0" y="318.5" width="375" height="30"/>
+                                <state key="normal" title="点我点我"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Tqa-Xz-Ukr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Bd-9U-mfn"/>
+                            <constraint firstItem="vvN-EG-6qO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="698-Fa-aIf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tqa-Xz-Ukr" secondAttribute="trailing" id="Bbf-aY-h7v"/>
+                            <constraint firstItem="vvN-EG-6qO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="I1x-qo-O2D"/>
                             <constraint firstItem="Tqa-Xz-Ukr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QfV-X5-yR9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tqa-Xz-Ukr" secondAttribute="bottom" id="nz0-1A-h5o"/>
+                            <constraint firstItem="vvN-EG-6qO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sO5-4d-sYT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="DtF-Tj-OLb"/>
                     <connections>
+                        <outlet property="button" destination="vvN-EG-6qO" id="I7T-Lq-1rP"/>
                         <outlet property="tableView" destination="Tqa-Xz-Ukr" id="0dX-73-Ab3"/>
                     </connections>
                 </viewController>

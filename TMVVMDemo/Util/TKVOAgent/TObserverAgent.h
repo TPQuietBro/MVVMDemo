@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "TObserverDefine.h"
 
-#define TKVO(target,keyPath) 
+#define TKVO(observer,target,key_path,block) [observer t_addObserverForTarget:target keyPath:@t_keypath(target,key_path) handler:block]
 
 @interface TObserverAgent : NSObject
-
+// 单个keyPath
 - (void)t_addObserverForTarget:(NSObject *)target
-                       keyPath:(NSString *)keyPath handler:(Handler)handler;
-
+                       keyPath:(NSString *)keyPath
+                       handler:(Handler)handler;
+// 多个keyPath
 - (void)t_addObserverForTarget:(NSObject *)target
-                      keyPaths:(NSArray *)keyPaths handler:(Handler)handler;
+                      keyPaths:(NSArray *)keyPaths
+                       handler:(Handler)handler;
 @end

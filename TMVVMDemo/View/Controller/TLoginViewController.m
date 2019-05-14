@@ -69,6 +69,12 @@
         make.top.mas_equalTo(100);
         make.centerX.mas_equalTo(self.view);
     }];
+    
+    Handler handler = ^(NSDictionary *change, id target, NSString *key_path) {
+        
+    };
+    
+    TKVO(self.kvoAgent, self.viewModel, command.result, handler);
 }
 
 - (UILabel *)resultLabel{
