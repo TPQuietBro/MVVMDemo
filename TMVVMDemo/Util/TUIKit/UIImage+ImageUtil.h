@@ -1,5 +1,5 @@
 //
-//  UIImage+ZNovImage.h
+//  UIImage+ImageUtil.h
 //  ZNovel
 //
 //  Created by 唐鹏 on 2019/4/2.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (ZNovImage)
+@interface UIImage (ImageUtil)
 
 /**
  生成纯色图片

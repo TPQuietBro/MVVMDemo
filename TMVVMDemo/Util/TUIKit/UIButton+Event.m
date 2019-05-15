@@ -9,8 +9,7 @@
 #import "UIButton+Event.h"
 #import <objc/runtime.h>
 #import "UIView+Event.h"
-#import "TObserver.h"
-#import "UIImage+ZNovImage.h"
+#import "UIImage+ImageUtil.h"
 
 typedef void(^ClickBlock)(UIButton *target);
 

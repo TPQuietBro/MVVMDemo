@@ -1,14 +1,14 @@
 //
-//  UIImage+ZNovImage.m
+//  UIImage+ImageUtil.m
 //  ZNovel
 //
 //  Created by 唐鹏 on 2019/4/2.
 //  Copyright © 2019 ZNovel. All rights reserved.
 //
 
-#import "UIImage+ZNovImage.h"
+#import "UIImage+ImageUtil.h"
 
-@implementation UIImage (ZNovImage)
+@implementation UIImage (ImageUtil)
 
 + (UIImage *)imageWithColor:(UIColor *)color
 {
