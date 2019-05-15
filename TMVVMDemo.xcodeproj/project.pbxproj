@@ -27,6 +27,8 @@
 		AF3B9594228A6CB000B93434 /* UITextField+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B9593228A6CB000B93434 /* UITextField+Event.m */; };
 		AF3B9597228A6DB200B93434 /* UIControl+Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B9596228A6DB200B93434 /* UIControl+Event.m */; };
 		AF3B959B228AC78700B93434 /* TViewPropertyAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3B959A228AC78700B93434 /* TViewPropertyAgent.m */; };
+		AFE52C34228BE76C00E92E3F /* UIView+PropertyBind.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE52C33228BE76C00E92E3F /* UIView+PropertyBind.m */; };
+		AFE52C37228BF91800E92E3F /* UIImage+ZNovImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE52C36228BF91800E92E3F /* UIImage+ZNovImage.m */; };
 		CB75553DC45F7F1D8B2B3509 /* libPods-TMVVMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7309CFBEA0710DD1E5B6FD79 /* libPods-TMVVMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,10 @@
 		AF3B9598228A704200B93434 /* TUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TUIKit.h; sourceTree = "<group>"; };
 		AF3B9599228AC78700B93434 /* TViewPropertyAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TViewPropertyAgent.h; sourceTree = "<group>"; };
 		AF3B959A228AC78700B93434 /* TViewPropertyAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TViewPropertyAgent.m; sourceTree = "<group>"; };
+		AFE52C32228BE76C00E92E3F /* UIView+PropertyBind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+PropertyBind.h"; sourceTree = "<group>"; };
+		AFE52C33228BE76C00E92E3F /* UIView+PropertyBind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+PropertyBind.m"; sourceTree = "<group>"; };
+		AFE52C35228BF91800E92E3F /* UIImage+ZNovImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZNovImage.h"; sourceTree = "<group>"; };
+		AFE52C36228BF91800E92E3F /* UIImage+ZNovImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZNovImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,12 +264,16 @@
 				AF3B958A228A6C7900B93434 /* UIButton+Event.m */,
 				AF3B958C228A6C8800B93434 /* UIView+Event.h */,
 				AF3B958D228A6C8800B93434 /* UIView+Event.m */,
+				AFE52C32228BE76C00E92E3F /* UIView+PropertyBind.h */,
+				AFE52C33228BE76C00E92E3F /* UIView+PropertyBind.m */,
 				AF3B958F228A6C9E00B93434 /* UILabel+Event.h */,
 				AF3B9590228A6C9E00B93434 /* UILabel+Event.m */,
 				AF3B9592228A6CB000B93434 /* UITextField+Event.h */,
 				AF3B9593228A6CB000B93434 /* UITextField+Event.m */,
 				AF3B9595228A6DB200B93434 /* UIControl+Event.h */,
 				AF3B9596228A6DB200B93434 /* UIControl+Event.m */,
+				AFE52C35228BF91800E92E3F /* UIImage+ZNovImage.h */,
+				AFE52C36228BF91800E92E3F /* UIImage+ZNovImage.m */,
 				AF3B9599228AC78700B93434 /* TViewPropertyAgent.h */,
 				AF3B959A228AC78700B93434 /* TViewPropertyAgent.m */,
 			);
@@ -396,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE52C34228BE76C00E92E3F /* UIView+PropertyBind.m in Sources */,
 				AF3B9597228A6DB200B93434 /* UIControl+Event.m in Sources */,
 				AF3B9594228A6CB000B93434 /* UITextField+Event.m in Sources */,
 				AF3B959B228AC78700B93434 /* TViewPropertyAgent.m in Sources */,
@@ -409,6 +420,7 @@
 				AF1EF60D227F170900CCA593 /* TLoginViewController.m in Sources */,
 				AF3B958E228A6C8800B93434 /* UIView+Event.m in Sources */,
 				AF3B958B228A6C7900B93434 /* UIButton+Event.m in Sources */,
+				AFE52C37228BF91800E92E3F /* UIImage+ZNovImage.m in Sources */,
 				AF3B95852289719200B93434 /* TObserverAgent.m in Sources */,
 				AF3B95872289719200B93434 /* TCommand.m in Sources */,
 				AF1EF616227F175A00CCA593 /* TLoginViewModel.m in Sources */,

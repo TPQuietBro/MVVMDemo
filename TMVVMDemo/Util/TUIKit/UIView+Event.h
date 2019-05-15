@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TViewPropertyAgent.h"
-
 @interface UIView (Event)
-
-@property (nonatomic, strong) TViewPropertyAgent *proAgent;
 
 - (NSMutableArray *)allPropertyies;
 
@@ -44,5 +41,6 @@
  @param block 事件回调
  */
 - (void)swipeWithBlock:(void(^)(UIView *target))block;
+
 @end
 

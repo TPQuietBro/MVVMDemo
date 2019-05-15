@@ -56,6 +56,7 @@ typedef void(^GestureBlock)(UIView *target);
     self.block ? self.block(target) : nil;
 }
 
+
 #pragma mark - base
 
 - (NSMutableArray *)allPropertyies{
@@ -78,13 +79,13 @@ typedef void(^GestureBlock)(UIView *target);
 
 #pragma mark - assiciation
 
-- (void)setProAgent:(TViewPropertyAgent *)proAgent{
-    objc_setAssociatedObject(self, @selector(proAgent), proAgent, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (TViewPropertyAgent *)proAgent{
-    return objc_getAssociatedObject(self, @selector(proAgent));
-}
+//- (void)setProAgent:(TViewPropertyAgent *)proAgent{
+//    objc_setAssociatedObject(self, @selector(proAgent), proAgent, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//
+//- (TViewPropertyAgent *)proAgent{
+//    return objc_getAssociatedObject(self, @selector(proAgent));
+//}
 
 - (void)setBlock:(GestureBlock)block{
     objc_setAssociatedObject(self, @selector(block), block, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -93,7 +94,4 @@ typedef void(^GestureBlock)(UIView *target);
 - (GestureBlock)block{
     return objc_getAssociatedObject(self, @selector(block));
 }
-
-
-
 @end

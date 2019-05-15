@@ -15,5 +15,7 @@
 #import "UIControl+Event.h"
 #import "TObserver.h"
 #import "TViewPropertyAgent.h"
+#import "UIView+PropertyBind.h"
+#import "UIImage+ZNovImage.h"
 
 #endif /* TUIKit_h */

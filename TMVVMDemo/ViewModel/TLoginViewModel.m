@@ -25,11 +25,11 @@
 }
 
 - (void)initItems{
-    Weakify(self);
+    _Weakify(self);
     self.command = [[TCommand alloc] initWithRequestBlock:^(id param, CompletionHandler completionHandler) {
-        Strongify(self);
+        _Strongify(self);
         [self.dataModel requestToLoginWithParam:param completionBlock:^(id responseObject, NSError *error) {
-            SAFE_BLOCK(completionHandler,error,responseObject);
+            _SAFE_BLOCK(completionHandler,error,responseObject);
         }];
     }];
 }

@@ -77,7 +77,7 @@ return;\
     [infos enumerateObjectsUsingBlock:^(TObserverInfo * _Nonnull info, BOOL * _Nonnull stop) {
         
         if ([info.keyPath isEqualToString:keyPath]) {
-            SAFE_BLOCK(info.handler,change,object,keyPath);
+            _SAFE_BLOCK(info.handler,change,object,keyPath);
             ASLog(@"newValue : %@",change[NSKeyValueChangeNewKey]);
         }
     }];

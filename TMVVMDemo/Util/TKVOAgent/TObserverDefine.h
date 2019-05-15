@@ -15,12 +15,12 @@
 #endif
 #endif
 
-#define SAFE_BLOCK(block,...) (block ? block(__VA_ARGS__) : nil)
+#define _SAFE_BLOCK(block,...) (block ? block(__VA_ARGS__) : nil)
 
-#define Weakify(obj) \
+#define _Weakify(obj) \
 __weak __typeof__(obj) obj##_weak_ = obj;
 
-#define Strongify(obj) \
+#define _Strongify(obj) \
 __strong __typeof__(obj##_weak_) obj = obj##_weak_;
 
 typedef void(^Handler)(NSDictionary *change,id target,NSString *keyPath);
@@ -36,6 +36,8 @@ typedef void(^Handler)(NSDictionary *change,id target,NSString *keyPath);
 
 #define t_keypath(...) \
 metamacro_if_eq(1, metamacro_argcount(__VA_ARGS__))(t_keypath1(__VA_ARGS__))(t_keypath2(__VA_ARGS__))
+
+#define Target_KeyPath(target,_keyPath) @t_keypath(target,_keyPath)
 
 /**
  * Returns A and B concatenated after full macro expansion.

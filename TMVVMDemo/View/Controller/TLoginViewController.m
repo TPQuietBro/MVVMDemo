@@ -55,10 +55,10 @@
     [self.loginView bindViewModel:self.viewModel];
 
     // 监听网络回调
-    Weakify(self);
+    _Weakify(self);
     self.kvoAgent = [[TObserverAgent alloc] init];
     [self.kvoAgent t_addObserverForTarget:self.viewModel keyPath:@t_keypath(self.viewModel,command.result) handler:^(NSDictionary *change, id target, NSString *keyPath) {
-        Strongify(self);
+        _Strongify(self);
         TCommandResult *newValue = change[NSKeyValueChangeNewKey];
         [self.resultLabel setText:newValue.responseObject];
     }];

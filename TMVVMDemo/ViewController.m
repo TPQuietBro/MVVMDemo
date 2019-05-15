@@ -25,23 +25,32 @@
         NSLog(@"---%@",[target class]);
     }];
     [self.button clickForControlEvents:UIControlEventTouchUpInside block:^(UIButton *sender) {
-        NSLog(@"button clicked");
+        sender.selected = !sender.selected;
+        NSLog(@"button clicked  selected : %d",sender.selected);
     }];
-
     
-//    [self.button bindConditions:@[@"123",@"123"] bindBlock:^id(NSString *name,NSString *pwd){
+    
+//    [self.button bindConditions:@[@"qqq",@"www"] keyPath:Target_KeyPath(self.button, backgroundColor) bindBlock:^id(NSString *name,NSString *pwd){
 //        NSLog(@"name : %@,pwd : %@",name,pwd);
-//        return @(name.length > 0 && pwd.length > 0);
+//        if (name.length > 0 && pwd.length > 0) {
+//            return [UIColor redColor];
+//        }
+//        return [UIColor blueColor];
 //    }];
-    
-    self.button.proAgent = TOBERSERVE(self.button,backgroundColor);
-    [self.button bindConditions:@[@"qqq",@"www"] bindBlock:^id(NSString *name,NSString *pwd){
-        NSLog(@"name : %@,pwd : %@",name,pwd);
-        if (name.length > 0 && pwd.length > 0) {
-            return [UIColor redColor];
-        }
-        return [UIColor blueColor];
-    }];
+//
+//    [self.button bindConditions:@[@"123",@"123"] keyPath:Target_KeyPath(self.button, isEnabled) bindBlock:^id(NSString *name,NSString *pwd){
+//        NSLog(@"name : %@,pwd : %@",name,pwd);
+//        return @(name.length > 8 && pwd.length > 8);
+//    }];
+//    [self.button setBackgroundColor:[UIColor redColor]];
+    [self.button setBackgroundColor:[UIColor redColor] forControlState:UIControlStateNormal];
+//
+//    [self.button setBackgroundColor:[UIColor orangeColor] forControlState:UIControlStateSelected];
+//
+//    [self.button setBackgroundColor:[UIColor blueColor] forControlState:UIControlStateDisabled];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.button.enabled = NO;
+//    });
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

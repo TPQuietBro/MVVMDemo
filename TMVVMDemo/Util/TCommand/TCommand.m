@@ -45,7 +45,7 @@
 - (void)excute:(id)param{
     self.isLoading = YES;
     __weak typeof(self) weak_self = self;
-    SAFE_BLOCK(self.requestBlock,param,^(NSError *error,id result){
+    _SAFE_BLOCK(self.requestBlock,param,^(NSError *error,id result){
         __strong typeof(weak_self) strong_self = weak_self;
         strong_self.isLoading = NO;
         // 监听readonly属性
@@ -57,7 +57,7 @@
 }
 
 - (void)cancel{
-    SAFE_BLOCK(self.cancelBlock);
+    _SAFE_BLOCK(self.cancelBlock);
 }
 
 #pragma mark - getter
