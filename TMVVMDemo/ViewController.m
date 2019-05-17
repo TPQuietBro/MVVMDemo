@@ -30,20 +30,20 @@
     }];
     
     
-//    [self.button bindConditions:@[@"qqq",@"www"] keyPath:Target_KeyPath(self.button, backgroundColor) bindBlock:^id(NSString *name,NSString *pwd){
-//        NSLog(@"name : %@,pwd : %@",name,pwd);
-//        if (name.length > 0 && pwd.length > 0) {
-//            return [UIColor redColor];
-//        }
-//        return [UIColor blueColor];
-//    }];
-//
-//    [self.button bindConditions:@[@"123",@"123"] keyPath:Target_KeyPath(self.button, isEnabled) bindBlock:^id(NSString *name,NSString *pwd){
-//        NSLog(@"name : %@,pwd : %@",name,pwd);
-//        return @(name.length > 8 && pwd.length > 8);
-//    }];
+    [self.button bindConditions:@[@"qqq",@"www"] keyPath:Target_KeyPath(self.button, backgroundColor) bindBlock:^id(NSString *name,NSString *pwd){
+        NSLog(@"name : %@,pwd : %@",name,pwd);
+        if (name.length > 0 && pwd.length > 0) {
+            return [UIColor redColor];
+        }
+        return [UIColor blueColor];
+    }];
+
+    [self.button bindConditions:@[@"123",@"123"] keyPath:Target_KeyPath(self.button, enabled) bindBlock:^id(NSString *name,NSString *pwd){
+        NSLog(@"name : %@,pwd : %@",name,pwd);
+        return @(name.length > 8 && pwd.length > 8);
+    }];
 //    [self.button setBackgroundColor:[UIColor redColor]];
-    [self.button setBackgroundColor:[UIColor redColor] forControlState:UIControlStateNormal];
+//    [self.button setBackgroundColor:[UIColor redColor] forControlState:UIControlStateNormal];
 //
 //    [self.button setBackgroundColor:[UIColor orangeColor] forControlState:UIControlStateSelected];
 //

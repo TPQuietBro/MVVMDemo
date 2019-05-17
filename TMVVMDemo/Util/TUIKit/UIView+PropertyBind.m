@@ -37,8 +37,8 @@
 
 // 防止KVC崩溃
 - (void)setValue:(id)value forUndefinedKey:(nonnull NSString *)key{
-    if ([key containsString:@"is"]) {
-        key = [self originalKeyPath:key];
+    if ([key hasPrefix:@"is"]) {
+        key = [self originalKeyPathWithOutIs:key];
         [self setValue:value forKeyPath:key];
     }
 }
@@ -55,7 +55,7 @@
     return NO;
 }
 // 去掉i'is'属性
-- (NSString *)originalKeyPath:(NSString *)keyPath{
+- (NSString *)originalKeyPathWithOutIs:(NSString *)keyPath{
     keyPath = [keyPath lowercaseString];
     return [keyPath stringByReplacingOccurrencesOfString:@"is" withString:@""];
 }
